@@ -1,0 +1,1 @@
+//Then /user/login or /user/register goes to the user.js
