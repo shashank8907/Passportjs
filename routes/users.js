@@ -6,7 +6,7 @@ const router = express.Router() ;
 //Login page
 router.get('/login',(req,res)=>{
 
-    res.login("login");
+    res.render("login");
 
 });
 
