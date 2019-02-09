@@ -15,6 +15,9 @@ mongoose.connect(db,{useNewUrlParser:true}).then(()=>{console.log('mongoDB conne
 app.use(expressLayouts)
 app.set('view engine', 'ejs');//setting our view engin to ejs
 
+//Body parser -- part of express
+app.use(express.urlencoded({extended:false})); //This way we can get the data from the form through request.body 
+
 
 //Routes
 app.use("/",require("./routes/index"));
