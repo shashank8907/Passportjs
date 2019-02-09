@@ -1,6 +1,15 @@
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
+const mongoose = require("mongoose");
 const app = express();
+
+//DB config
+//object.key
+const db= require('./config/keys').MongoURI;
+
+//Connect to mongo
+//useNewUrlParser:true if we do this we dont get any complaints from the console
+mongoose.connect(db,{useNewUrlParser:true}).then(()=>{console.log('mongoDB connected...')}).catch(err => console.log(err));
 
 //EJS
 app.use(expressLayouts)
