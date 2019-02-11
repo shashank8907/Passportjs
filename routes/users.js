@@ -40,6 +40,13 @@ router.post('/register', (req, res) => {
         // With ejs or any templet engin you can pass in values along with rendering page
         res.render('register',{
          errors,
+        //  We also need to pass the data because in the registration form
+        // value="<%= typeof name != 'undefined' ? name : '' %>"
+        name,
+        email,
+        password,
+        password2
+
             
         }); 
     }else{
