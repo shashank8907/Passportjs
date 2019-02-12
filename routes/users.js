@@ -95,13 +95,13 @@ router.post('/register', (req, res) => {
                 const saltRounds = 10;
                 const myPlaintextPassword = newUser.password;
                 bcrypt.genSalt(saltRounds, function(err, salt) {
+                    if (err) throw err;
                     bcrypt.hash(myPlaintextPassword, salt, function(err, hash) {
                         // Store hash in your password DB.
                         if (err) throw err;
-
                         newUser.password = hash;
-
                         newUser.save().then(user => {
+                            req.flash('success_msg','You are now registered')
                             res.redirect('/users/login')
                         }).catch(err => {
                             console.log("error in save()")
