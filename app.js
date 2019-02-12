@@ -3,8 +3,11 @@ const expressLayouts = require("express-ejs-layouts");
 const mongoose = require("mongoose");
 const flash = require('connect-flash');
 const session = require('express-session');
+const passport = require('passport');
 const app = express();
 
+//passport config
+require('./config/passport')(passport);
 //DB config
 //object.key
 const db = require('./config/keys').MongoURI;
@@ -32,6 +35,10 @@ app.use(session({
     resave: true,
     saveUninitialized: true,
 }))
+
+//passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
 
 //connect flash
 //Now we have access to req.flash
