@@ -1,5 +1,5 @@
 //We create a schema which basically consists of all different fields the we wan4t for a user 
-const mongoose = require(mongoose);
+const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
 
