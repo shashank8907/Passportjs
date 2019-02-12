@@ -50,6 +50,8 @@ app.use((req,res,next)=>{
 //We can use flash now because we have the flash object
 res.locals.success_msg = req.flash('success_msg');
 res.locals.error_msg = req.flash('error_msg');
+res.locals.error = req.flash('error');//For passport login
+
 next();
 })
 
