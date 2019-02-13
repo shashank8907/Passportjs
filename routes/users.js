@@ -67,8 +67,8 @@ router.post('/register', (req, res) => {
             password2
         });
     } else {
-        // Validation passed
-        //finde one where email = email
+        // enetr here when validation passed
+        //find one where email = email
         User.findOne({
             email: email
         }).then(user => {
@@ -104,6 +104,8 @@ router.post('/register', (req, res) => {
                         newUser.password = hash;
                         newUser.save().then(user => {
                             req.flash('success_msg','You are now registered')
+                            //res.redirect() will redirect a user to another page (at which point the request starts over)
+                            //So we use flash-connect to set the global variable 
                             res.redirect('/users/login')
                         }).catch(err => {
                             console.log("error in save()")

@@ -27,7 +27,7 @@ const UserSchema = new mongoose.Schema({
 })
 
 //put the UserSchema in a variable and export it 
-                //To create a mode from our schema model name, Schema
+                //To create a mode from our schema: model name, Schema
 const User = mongoose.model('User',UserSchema); 
 
 module.exports = User;//Export this object so we can use it in other files
