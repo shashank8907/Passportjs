@@ -3,6 +3,8 @@
 
 const express = require('express');
 const router = express.Router() ;
+//Here are importing an object that has key value pair of a function
+//Here below code is same as  ensureAuthenticat = require('../config/auth').ensureAuthenticated
 const { ensureAuthenticated } = require('../config/auth');
 
 
